@@ -925,8 +925,10 @@ var PH = {
 /* Два источника разом. Если в PH стоит имя файла (есть расширение), картинка
    берётся из папки img рядом с сайтом. Если стоит длинный ID, тянется с Google
    Диска. Так можно переносить модели на свой хостинг по одной.            */
+/* Где лежат фото. '' если рядом с index.html, 'img/' если в подпапке. */
+var IMG_DIR = '';
 function drv(f,w){
-  if(/\.(webp|jpe?g|png|avif)$/i.test(f))return 'img/'+f;
+  if(/\.(webp|jpe?g|png|avif)$/i.test(f))return IMG_DIR+f;
   return 'https://drive.google.com/thumbnail?id='+f+'&sz=w'+w;
 }
 /* Фото применения общие на модель: присылаются один раз, показываются
